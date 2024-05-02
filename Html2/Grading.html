@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grade Calculator</title>
+</head>
+<script type= "text/javascript">
+function calculateAverage() {
+  const nameInput = document.getElementById('nameInput');
+  const englishGrade = document.getElementById('englishGrade').value;
+  const mathGrade = document.getElementById('mathGrade').value;
+  const scienceGrade = document.getElementById('scienceGrade').value;
+  const historyGrade = document.getElementById('historyGrade').value;
+
+  if (
+    !nameInput.value ||
+    englishGrade < 0 ||
+    englishGrade > 100 ||
+    mathGrade < 0 ||
+    mathGrade > 100 ||
+    scienceGrade < 0 ||
+    scienceGrade > 100 ||
+    historyGrade < 0 ||
+    historyGrade > 100
+  ) {
+    alert('Please enter valid grades and a name.');
+    return;
+  }
+
+  const average =
+    (Number(englishGrade) + Number(mathGrade) + Number(scienceGrade) + Number(historyGrade)) / 4;
+
+  let remarks;
+  if (average >= 89 && average <= 100) {
+    remarks = 'A';
+  } else if (average >= 86 && average <= 88) {
+    remarks = 'B';
+  } else if (average >= 81 && average <= 85) {
+    remarks = 'C';
+  } else if (average >= 75 && average <= 80) {
+    remarks = 'D';
+  } else {
+    remarks = "failed grades";
+  }
+
+  document.getElementById('result').innerText = `${nameInput.value}, your average grade is ${average.toFixed(
+    2
+  )} with a remark of ${remarks}.`;
+}
+  
+  
+</script>
+<body>
+    <h1>Grading System</h1>
+    <input type="text" id="nameInput" placeholder="Enter your name">
+    <br>
+    <br>
+    <label for="english">English:</label>
+    <input type="number" id="englishGrade" min="0" max="100">
+    <br>
+    <br>
+    <label for="math">Math:</label>
+    <input type="number" id="mathGrade" min="0" max="100">
+    <br>
+    <br>
+    <label for="science">Science:</label>
+    <input type="number" id="scienceGrade" min="0" max="100">
+    <br>
+    <br>
+    <label for="history">History:</label>
+    <input type="number" id="historyGrade" min="0" max="100">
+    <br>
+    <br>
+    <button onclick="calculateAverage()">Calculate Average</button>
+    <p id="result"></p>
+
+    <script src="script.js"></script>
+</body>
+</html>

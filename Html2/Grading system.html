@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <title>sample input project</title>
+        
+        <script type="text/JavaScript">
+            function check()
+            {
+   if(ave>=90&&ave<=100)
+                {
+   document.write("hi your Grades is with the marking A");
+                }
+  else if(ave>=80&&ave<=89)
+            {
+        document.write("hi your Grades is with the marking B");        
+            }
+   else if(ave>=75&&ave<=79)
+         {
+             document.write("hi your Grades is with the marking C");
+         }    
+else if(ave>=65&&ave<=74)
+         {
+             document.write("hi your Grades is with the marking D");
+         }    
+         else
+         remark=null;
+        }
+            
+        </script>
+    </head>
+    <body>
+        <p>Input your subject</p>
+        <form name="example">
+            <input type="text" name="test" value="">
+            <br/>
+            
+            <input type="text" name="fno" value="">
+            <br/>
+            <input type="text" name="cno" value="">
+            <br/>
+             <input type="button" name="button" value="Submit" onClick=check()>
+        </form>
+    </body>
+    
+</html>

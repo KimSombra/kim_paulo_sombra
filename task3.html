@@ -1,0 +1,97 @@
+
+
+<!doctype html>
+
+	<html>
+	<head>
+		<meta charset="utf-8">
+
+		<title>JavaScript Arithmetic Operators using Buttons</title>
+		<script>
+			function add()
+			{
+				var a=parseInt(t1.value);
+				var b=parseInt(t2.value);
+				var c=a+b;
+				document.getElementById("output").innerHTML="Sum= "+c;
+			}
+			function div()
+			{
+				var a=parseInt(t1.value);
+				var b=parseInt(t2.value);
+				var c=a/b;
+				document.getElementById("output").innerHTML="Quotient= "+c;
+			}
+			function mul()
+			{
+				var a=parseInt(t1.value);
+				var b=parseInt(t2.value);
+				var c=a*b;
+				document.getElementById("output").innerHTML="Product = "+c;
+			}
+			function sub()
+			{
+				var a=parseInt(t1.value);
+				var b=parseInt(t2.value);
+				var c=a-b;
+				document.getElementById("output").innerHTML="Difference= "+c;
+			}
+			function mod()
+			{
+				var a=parseInt(t1.value);
+				var b=parseInt(t2.value);
+				var c=a%b;
+				document.getElementById("output").innerHTML="Modulus= "+c;
+			}
+			
+		</script>
+
+	</head>
+	<body>
+		<form>
+			<table>
+		<tr>
+
+		<td>Enter 1st No.:</td>
+		<td><input type="text" id="t1"/></td>
+	</tr>
+	<tr>
+		<td>Enter 2nd No.:</td>
+		<td><input type="text" id="t2"/></td>
+	</tr>
+	<tr>
+		<td colspan="2" align="center">
+		<input type="button" value="Sum"onclick="add()"/>
+	</td>
+	</tr>
+	<tr>
+		<td colspan="2" align="center">
+		<input type="button" value="Quotient"onclick="div()"/>
+	</td>
+	</tr>
+	<tr>
+		<td colspan="2" align="center">
+		<input type="button" value="Product"onclick="mul()"/>
+	</td>
+	</tr>
+	<tr>
+		<td colspan="2" align="center">
+		<input type="button" value="Difference"onclick="sub()"/>
+	</td>
+	</tr>
+	<tr>
+		<td colspan="2" align="center">
+		<input type="button" value="Modulus"onclick="mod()"/>
+	</td>
+	</tr>
+	<tr>
+		
+	<tr>
+		<td colspan="2"align="center">
+			<p id="output">output</p>
+		</td>
+	</tr>
+</table>
+</form>
+	</body>
+	</html>
