@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simple Cashier Machine</title>
+  </head>
+  <body>
+    <h1>Simple Cashier Machine</h1>
+    <p>Select products to add to your cart:</p>
+    <ul>
+      <li>
+        <button id="product1">cheese burger - $35</button>
+      </li>
+      <li>
+        <button id="product2">pilipino fries - $30</button>
+      </li>
+      <li>
+        <button id="product3">shupagetti - $40</button>
+      </li>
+        <li>
+        <button id="product3">chicken burger - $30</button>
+      </li>
+
+    </ul>
+    <p>Shopping Cart:</p>
+    <ul id="cart"></ul>
+    <p>Enter amount paid: <input type="number" id="amountPaid"></p>
+    <button id="buy">Buy</button>
+    <p>Change: $<span id="change">0</span></p>
+
+    <script>
+      // Get references to the buttons, cart, amount paid input, and change display
+      const productButtons = document.querySelectorAll('button[id="product"]');
+      const cart = document.getElementById('cart');
+      const amountPaidInput = document.getElementById('amountPaid');
+      const changeDisplay = document.getElementById('change');
+
+      // Add event listeners to the buttons
+      productButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+          // Get the price of the selected product
+          const price = parseFloat(button.textContent.slice(0, -1).split(' ')[1]);
+
+          // Create a new list item for the cart
+          const cartItem = document.createElement('li');
+          cartItem.textContent = Product ${button.id.slice(-1)} - $${price};
+
+          // Add the new list item to the cart
+          cart.appendChild(cartItem);
+        });
+      });
+
+      // Get a reference to the buy button
+      const buyButton = document.getElementById('buy');
+
+      // Add an event listener to the buy button
+      buyButton.addEventListener('click', () => {
+        // Calculate the total price of the items in the cart
+        const cartItems = cart.querySelectorAll('li');
+        let totalPrice = 0;
+        cartItems.forEach((item) => {
+          totalPrice += parseFloat(item.textContent.slice(item.textContent.indexOf('$') + 1));
+        });
+
+        // Get the amount paid from the input
+        const amountPaid = parseFloat(amountPaidInput.value);
+
+        // Calculate the change
+        const change = amountPaid - totalPrice;
+
+        // Update the change display
+        changeDisplay.textContent = change.toFixed(2);
+      });
+    </script>
+  </body>
+</html>
